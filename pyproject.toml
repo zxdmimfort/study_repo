@@ -19,3 +19,7 @@ selenium = "^4.12.0"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pyright]
+venvPath="/home/mimfort/.cache/pypoetry/virtualenvs/"
+venv="wsl-wmwNiQNL-py3.10"
