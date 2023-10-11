@@ -3,3 +3,4 @@ __pycache__
 .vscode
 /parse
 itertools_train.py
+asyncio_stepik/aiofiles/*/
