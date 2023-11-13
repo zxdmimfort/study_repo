@@ -50,27 +50,25 @@ class Booking:
 
 
 def create_booking(room_name: str, start: datetime.datetime, end: datetime.datetime) -> str:
+    print("Начинаем создание бронирования")
+    booking = Booking(room_name, start, end)
     try:
-        print("Начинаем создание бронирования")
-        booking = Booking(room_name, start, end)
         created = register_booking(booking)
         if created:
             msg = "Бронирование создано"
         else:
             msg = "Комната занята"
-        return json.dumps({
-            "created": created,
-            "msg": msg,
-            "booking": booking.otday_json()
-        }, ensure_ascii=False, indent=2)
     except KeyError:
-        return json.dumps({
-            "created": False,
-            "msg": "Комната не найдена",
-            "booking": booking.otday_json()
-        }, ensure_ascii=False, indent=2)
+        created = False
+        msg = "Комната не найдена"
     finally:
         print("Заканчиваем создание бронирования")
+    return json.dumps(
+        {
+        "created": created,
+        "msg": msg,
+        "booking": booking.otday_json()
+        }, ensure_ascii=False, indent=2)
 
 
 
@@ -78,5 +76,3 @@ result = create_booking("Вагнер", datetime.datetime(2022,9, 1, 14), dateti
 print(result)
 
 booking = Booking("Вагнер", datetime.datetime(2022,9, 1, 14), datetime.datetime(2022,9,1,15,15))
-booking.help_me = "123"
-print(booking.help)

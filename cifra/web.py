@@ -26,7 +26,6 @@ users_url = base_url + "users"
 posts_url = base_url + "posts"
 comments_url = base_url + "comments"
 
-
 users = requests.get(url=users_url).json()
 posts = requests.get(url=posts_url).json()
 comments = requests.get(url=comments_url).json()
@@ -39,8 +38,9 @@ log_users(users, res, rel)
 log_posts(posts, res)
 log_comments(comments, res, rel)
 rly_res = [stat_user for stat_user in res.values()]
-    
-response = requests.post("https://webhook.site/8fb8866a-29eb-4a67-8d36-969991dc5019", json={"statistics": rly_res})
+
+print(rly_res)
+response = requests.post("https://webhook.site/f4aa8350-71a1-40d4-9301-ef32e3eae270", json={"statistics": rly_res})
 
 with open("solution.pickle", "wb") as f:
     pickle.dump(response, f)

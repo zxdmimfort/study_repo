@@ -6,3 +6,4 @@ itertools_train.py
 asyncio_stepik/aiofiles/*/
 asyncio_stepik/aiofiles/*.zip
 asyncio_stepik/aiofiles/*.csv
+*.pickle
